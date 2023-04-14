@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from nsApp.views import *
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('customer/', CustomerListView.as_view()),
+    path('customer/<int:pk>', CustomerDetailView.as_view()),
+    path('order/', OrderListView.as_view()),
+    path('order/<int:pk>', OrderDetailView.as_view()),
 ]
